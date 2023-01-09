@@ -1,0 +1,72 @@
+// function
+// stepper產生數字
+@mixin getStepNums($num) {
+  @for $i from 1 through $num {
+    &:nth-child(#{$i}) .circleContainer::after {
+      content: "#{$i}";
+    }
+  }
+}
+
+.checkedStepper {
+  display: flex;
+  margin-bottom: 64px;
+
+  .step {
+    position: relative;
+    flex: 1;
+    @include getStepNums(3);
+    .circleContainer {
+      position: absolute;
+      height: 32px;
+      width: 32px;
+      border: 1px solid #afb1bd;
+      border-radius: 50%;
+      color: #afb1bd;
+      margin: 0 auto;
+    }
+
+    // checkStep的title
+    .labelContainer {
+      position: absolute;
+      top: 5px;
+      left: 45px;
+    }
+
+    .circleContainer::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    // 設定checked 和 active 樣式
+    &.checked .circleContainer::after {
+      content: "\2714";
+    }
+
+    &.checked,
+    &.active {
+      .circleContainer {
+        background-color: #2a2a2a;
+        color: #ffffff;
+      }
+
+      .labelContainer {
+        color: #18253d;
+      }
+    }
+
+    // connect-line樣式設定
+    .connectLine {
+      display: block;
+      width: 60px;
+      height: 1px;
+      background-color: #2a2a2a;
+      position: absolute;
+      top: 15.5px;
+      right: calc(50%);
+      left: calc(-50%);
+    }
+  }
+}
