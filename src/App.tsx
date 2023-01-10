@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './page/HomePage';
 import NotFoundPage from './page/NotFoundPage';
+import './style/App.scss'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path='home' element={<HomePage />} />

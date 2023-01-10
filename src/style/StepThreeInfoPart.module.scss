@@ -1,4 +1,4 @@
-.stepOneInfoPaart {
+.stepThreeInfoPaart {
   .title {
     margin-bottom: 24px;
 
@@ -14,32 +14,24 @@
     grid-gap: 30px;
 
     grid-template-areas:
-      "gender  real-name real-name real-name"
-      "mobile mobile email email"
-      "county  address address address";
-      
-    .userGender {
-      grid-area: gender;
-    }
+      "real-name real-name real-name ."
+      "cardNumber cardNumber cardNumber ."
+      "cardDeadLine  cardDeadLine cardCvc cardCvc";
 
     .userName {
       grid-area: real-name;
     }
 
-    .userTel {
-      grid-area: mobile;
+    .cardNumber {
+      grid-area: cardNumber;
     }
 
-    .userEmail {
-      grid-area: email;
+    .cardDeadLine {
+      grid-area: cardDeadLine;
     }
 
-    .userCity {
-      grid-area: county;
-    }
-
-    .userAdress {
-      grid-area: address;
+    .cardCvc {
+      grid-area: cardCvc;
     }
 
     

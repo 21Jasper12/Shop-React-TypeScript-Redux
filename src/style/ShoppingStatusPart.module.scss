@@ -9,6 +9,7 @@
 }
 
 .checkedStepper {
+  min-width: 540px;
   display: flex;
   margin-bottom: 64px;
 
@@ -66,7 +67,7 @@
       position: absolute;
       top: 15.5px;
       right: calc(50%);
-      left: calc(-50%);
+      left: calc(-50% + 20px);
     }
   }
 }

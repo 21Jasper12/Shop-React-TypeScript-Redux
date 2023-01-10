@@ -1,0 +1,51 @@
+.formRow {
+  position: relative;
+  border: 1px solid #dfdfe4;
+  border-radius: 4px;
+  width: 346px;
+  height: 60px;
+  margin-bottom: 24px;
+
+  input {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 306px;
+  }
+
+  .tagTitle {
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    bottom: 29px;
+    right: 83px;
+    font-size: 14px;
+    font-weight: 400;
+
+    &.fast {
+      font-weight: 700;
+    }
+  }
+
+  .tagDescription {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    bottom: 31px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .tagCosts {
+    position: absolute;
+    top: 13px;
+    left: 302px;
+    bottom: 11px;
+    right: 83px;
+    font-size: 12px;
+    font-weight: 400;
+    width: 30px;
+  }
+}
