@@ -26,7 +26,7 @@ const InfoSelect = (
       <select
         name={name}
         value={inputValue}
-        onChange={(event: React.ChangeEvent<HTMLSelectElement>): void => onChange?.(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>): void => onChange?.(Number(event.target.value))}
         required
       >
         <option value={0} disabled>{defaultOptionTitle}</option>

@@ -27,7 +27,7 @@ const ShippingMethod = (
         type='radio' 
         value={inputValue}
         checked={inputValue === method}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>):void => onChange?.(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>):void => onChange?.(Number(event.target.value))}
       />
       <p className={`${styles.tagTitle} ${(fast && styles.fast)}`}>{tagTitle}</p>
       <p className={styles.tagDescription}>{tagDescription}</p>

@@ -1,0 +1,30 @@
+.shoppingContainer {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #dfdfe4;
+  border-radius: 4px;
+
+  .shoppingTitle {
+    display: block;
+    margin: 32px 24px 0 24px;
+  }
+
+  .transportationFee,
+  .shoppingTotal {
+    position: relative;
+    border-top: 1px solid #dfdfe4;
+    margin: 16px 16px 0 16px;
+    height: 36px;
+    padding: 16px 0;
+  }
+
+  .feePrice,
+  .total {
+    position: absolute;
+    right: 0px;
+  }
+
+  .feePrice {
+    font-weight: 700;
+  }
+}

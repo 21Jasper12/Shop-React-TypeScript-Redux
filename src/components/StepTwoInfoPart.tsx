@@ -12,7 +12,6 @@ const StepTwoInfoPart = () => {
   const [shipMethod, setshipMethod] = useState<number>(stepTwoInfo)
   const dispatch = useAppDispatch()
   
-
   function handleClick(): boolean {
     console.log('ShipMethod: ', shipMethod)
 
@@ -36,7 +35,7 @@ const StepTwoInfoPart = () => {
           tagDescription='約3~7個工作天'
           tagCosts='免費'
           method={shipMethod}
-          onChange={(shipMethodInputValue: number) => setshipMethod(shipMethodInputValue)}
+          onChange={(shipMethodInputValue: number) => {setshipMethod(shipMethodInputValue)}}
         />
         
         <ShippingMethod

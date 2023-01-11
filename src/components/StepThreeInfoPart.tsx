@@ -2,7 +2,7 @@ import styles from '../style/StepThreeInfoPart.module.scss'
 import InfoInput from './InfoInputComponents/InfoInput'
 import { useState } from 'react'
 import ProgressControl from './ProgressControl'
-import { useAppDispatch } from '../store/store'
+import { useAppDispatch, useAppSelector } from '../store/store'
 import { stepThreeInfoChange } from '../store/feature/UserShopInfo'
 
 export interface stepThreeformState {
@@ -14,13 +14,31 @@ export interface stepThreeformState {
 
 
 const StepThreeInfoPart = () => {
-  const [userName, setUserName] = useState<string>('')
-  const [cardNumber, setCardNumber] = useState<string>('')
-  const [cardDeadLine, setCardDeadLine] = useState<string>('')
-  const [cardCvc, setCardCvc] = useState<string>('')
+  const {
+    userName: stepThreeName,
+    cardNumber: stepThreeCardNumber,
+    cardDeadLine: stepThreeCardDeadLine,
+    cardCvc: stepThreeCardCvc
+  } = useAppSelector((state) => state.userShopInfo.stepThreeInfo)
+  const allData = useAppSelector((state) => state.userShopInfo)
   const dispatch = useAppDispatch()
+  const [userName, setUserName] = useState<string>(stepThreeName)
+  const [cardNumber, setCardNumber] = useState<string>(stepThreeCardNumber)
+  const [cardDeadLine, setCardDeadLine] = useState<string>(stepThreeCardDeadLine)
+  const [cardCvc, setCardCvc] = useState<string>(stepThreeCardCvc)
+  
 
-  function handleClick(): void {
+  function handleClick(): boolean {
+    if (
+      userName.trim().length === 0 ||
+      cardNumber.trim().length === 0 ||
+      cardDeadLine.trim().length === 0 ||
+      cardCvc.trim().length === 0
+    ) {
+      alert('請將資料輸入完整')
+      return false
+    }
+
     const formData: stepThreeformState = {
       userName,
       cardNumber,
@@ -33,6 +51,9 @@ const StepThreeInfoPart = () => {
     dispatch(stepThreeInfoChange({
       formData
     }))
+    alert('訂單已送出')
+    console.log('allData: ', allData)
+    return true
   }
 
 
