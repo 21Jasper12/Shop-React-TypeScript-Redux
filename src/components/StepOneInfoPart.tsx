@@ -3,13 +3,15 @@ import InfoInput from './InfoInputComponents/InfoInput'
 import { useState } from 'react'
 import InfoSelect from './InfoInputComponents/InfoSelect'
 import ProgressControl from './ProgressControl'
+import { useAppDispatch, useAppSelector } from '../store/store'
+import { stepOneInfoChange } from '../store/feature/UserShopInfo'
 
 export interface arrayState {
   id: number,
   title: string
 }
 
-interface formState {
+export interface stepOneformState {
   userGender: number,
   userName: string,
   userTel: string,
@@ -47,15 +49,40 @@ const city: arrayState[] = [
 
 
 const StepOneInfoPart = () => {
-  const [userGender, setUserGender] = useState<number>(0)
-  const [userName, setUserName] = useState<string>('')
-  const [userTel, setUserTel] = useState<string>('')
-  const [userEmail, setUserEmail] = useState<string>('')
-  const [userCity, setUserCity] = useState<number>(0)
-  const [userAdress, setUserAdress] = useState<string>('')
+  const dispatch = useAppDispatch()
+  const stepOneInfo = useAppSelector((state) => state.userShopInfo.stepOneInfo)
+  const {
+    userGender: stepOneGender,
+    userName: stepOneName,
+    userTel: stepOneTel,
+    userEmail: stepOneEmail,
+    userCity: stepOneCity,
+    userAdress: stepOneAdress
+  } = stepOneInfo
+  const [userGender, setUserGender] = useState<number>(stepOneGender)
+  const [userName, setUserName] = useState<string>(stepOneName)
+  const [userTel, setUserTel] = useState<string>(stepOneTel)
+  const [userEmail, setUserEmail] = useState<string>(stepOneEmail)
+  const [userCity, setUserCity] = useState<number>(stepOneCity)
+  const [userAdress, setUserAdress] = useState<string>(stepOneAdress)
 
-  function handleClick(): void {
-    const formData: formState = {
+  // console.log('stepOneInfo: ', stepOneInfo)
+  
+
+  function handleClick(): boolean {
+    if(
+      userGender === 0 ||
+      userName.trim().length === 0 ||
+      userTel.trim().length === 0 ||
+      userEmail.trim().length === 0 ||
+      userCity === 0 ||
+      userAdress.trim().length === 0 
+    ){
+      alert('請將資料輸入完整')
+      return false
+    }
+
+    const formData: stepOneformState = {
       userGender,
       userName,
       userTel,
@@ -65,6 +92,8 @@ const StepOneInfoPart = () => {
     }
 
     console.log('formData', formData)
+    dispatch(stepOneInfoChange({ formData }))
+    return true
   }
 
 

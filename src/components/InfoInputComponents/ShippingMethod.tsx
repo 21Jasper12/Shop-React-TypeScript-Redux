@@ -1,11 +1,12 @@
 import styles from './ShippingMethod.module.scss'
 
 interface props {
-  inputValue: string,
+  inputValue: number,
   fast: boolean, 
   tagTitle: string, 
   tagDescription: string, 
   tagCosts: string,
+  method: number,
   onChange: Function
 }
 
@@ -16,15 +17,16 @@ const ShippingMethod = (
     tagTitle, 
     tagDescription, 
     tagCosts,
+    method,
     onChange 
   }: props
   ) => {
   return(
     <div className={styles.formRow}>
-      <input 
-        name='ta-method' 
+      <input
         type='radio' 
-        value={inputValue} 
+        value={inputValue}
+        checked={inputValue === method}
         onChange={(event: React.ChangeEvent<HTMLInputElement>):void => onChange?.(event.target.value)}
       />
       <p className={`${styles.tagTitle} ${(fast && styles.fast)}`}>{tagTitle}</p>

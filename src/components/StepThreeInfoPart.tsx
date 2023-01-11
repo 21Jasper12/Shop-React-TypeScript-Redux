@@ -1,10 +1,11 @@
 import styles from '../style/StepThreeInfoPart.module.scss'
 import InfoInput from './InfoInputComponents/InfoInput'
 import { useState } from 'react'
-import InfoSelect from './InfoInputComponents/InfoSelect'
 import ProgressControl from './ProgressControl'
+import { useAppDispatch } from '../store/store'
+import { stepThreeInfoChange } from '../store/feature/UserShopInfo'
 
-interface formState {
+export interface stepThreeformState {
   userName: string,
   cardNumber: string,
   cardDeadLine: string,
@@ -17,9 +18,10 @@ const StepThreeInfoPart = () => {
   const [cardNumber, setCardNumber] = useState<string>('')
   const [cardDeadLine, setCardDeadLine] = useState<string>('')
   const [cardCvc, setCardCvc] = useState<string>('')
+  const dispatch = useAppDispatch()
 
   function handleClick(): void {
-    const formData: formState = {
+    const formData: stepThreeformState = {
       userName,
       cardNumber,
       cardDeadLine,
@@ -27,6 +29,10 @@ const StepThreeInfoPart = () => {
     }
 
     console.log('formData', formData)
+
+    dispatch(stepThreeInfoChange({
+      formData
+    }))
   }
 
 

@@ -16,10 +16,10 @@ const ProgressControl = ({ onNext }: props) => {
 
   function handleNext(): void {
     // console.log('statusNumber: ', (statusNumber + 1))
-    if (statusNumber < 3){
+    const nextStatus = onNext()
+    if ((statusNumber < 3) && nextStatus) {
       dispatch(ShoppingChangeStatus({ status: (statusNumber + 1) }))
     }
-    onNext()
   }
 
   return(

@@ -2,15 +2,24 @@ import styles from '../style/StepTwoInfoPart.module.scss'
 import { useState } from 'react'
 import ProgressControl from './ProgressControl'
 import ShippingMethod from './InfoInputComponents/ShippingMethod'
+import { useAppDispatch, useAppSelector } from '../store/store'
+import { stepTwoInfoChange } from '../store/feature/UserShopInfo'
 
 
 
 const StepTwoInfoPart = () => {
-  const [shipMethod, setshipMethod] = useState<string>('')
+  const stepTwoInfo = useAppSelector((state) => state.userShopInfo.stepTwoInfo)
+  const [shipMethod, setshipMethod] = useState<number>(stepTwoInfo)
+  const dispatch = useAppDispatch()
   
 
-  function handleClick(): void {
+  function handleClick(): boolean {
     console.log('ShipMethod: ', shipMethod)
+
+    dispatch(stepTwoInfoChange({
+      formData: shipMethod
+    }))
+    return true
   }
 
 
@@ -21,21 +30,23 @@ const StepTwoInfoPart = () => {
 
       <div className={styles.shipMethod}>
         <ShippingMethod 
-          inputValue='free'
+          inputValue={0}
           fast={false}
           tagTitle='標準運送'
           tagDescription='約3~7個工作天'
           tagCosts='免費'
-          onChange={(shipMethodInputValue: string) => setshipMethod(shipMethodInputValue)}
+          method={shipMethod}
+          onChange={(shipMethodInputValue: number) => setshipMethod(shipMethodInputValue)}
         />
         
         <ShippingMethod
-          inputValue='cost'
+          inputValue={1}
           fast={true}
           tagTitle='DHL 貨運'
           tagDescription='48小時內送達'
           tagCosts='$500'
-          onChange={(shipMethodInputValue: string) => setshipMethod(shipMethodInputValue)}
+          method={shipMethod}
+          onChange={(shipMethodInputValue: number) => setshipMethod(shipMethodInputValue)}
         />
 
         
