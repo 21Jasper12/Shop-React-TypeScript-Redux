@@ -5,18 +5,44 @@ import ShippingMethod from './InfoInputComponents/ShippingMethod'
 import { useAppDispatch, useAppSelector } from '../store/store'
 import { stepTwoInfoChange } from '../store/feature/UserShopInfo'
 
+export interface shipFeeStatus {
+  id: number,
+  fast: boolean,
+  title: string,
+  description: string,
+  cost: number
+}
+
+const shipFee: shipFeeStatus[] = [
+  {
+    id: 0,
+    fast: false,
+    title: '標準運送',
+    description: '約3~7個工作天',
+    cost: 0
+  },
+  {
+    id: 1,
+    fast: true,
+    title: 'DHL 貨運',
+    description: '48小時內送達',
+    cost: 500
+  }
+]
+
 
 
 const StepTwoInfoPart = () => {
   const stepTwoInfo = useAppSelector((state) => state.userShopInfo.stepTwoInfo)
-  const [shipMethod, setshipMethod] = useState<number>(stepTwoInfo)
+  const [shipMethod, setshipMethod] = useState<number>(stepTwoInfo.id)
   const dispatch = useAppDispatch()
   
   function handleClick(): boolean {
-    console.log('ShipMethod: ', shipMethod)
+    const stepTwoInfoData = shipFee.filter((item) => item.id === shipMethod)
 
+    console.log('formData: ', stepTwoInfoData)
     dispatch(stepTwoInfoChange({
-      formData: shipMethod
+      formData: stepTwoInfoData[0]
     }))
     return true
   }
@@ -28,26 +54,21 @@ const StepTwoInfoPart = () => {
       <p className={styles.title}>運送方式</p>
 
       <div className={styles.shipMethod}>
-        <ShippingMethod 
-          inputValue={0}
-          fast={false}
-          tagTitle='標準運送'
-          tagDescription='約3~7個工作天'
-          tagCosts='免費'
-          method={shipMethod}
-          onChange={(shipMethodInputValue: number) => {setshipMethod(shipMethodInputValue)}}
-        />
+        {
+          shipFee.map((item) => (
+            <ShippingMethod
+              key={item.id} 
+              inputValue={item.id}
+              fast={item.fast}
+              tagTitle={item.title}
+              tagDescription={item.description}
+              tagCosts={item.cost}
+              method={shipMethod}
+              onChange={(shipMethodInputValue: number) => { setshipMethod(shipMethodInputValue) }}
+            />
+          ))
+        }
         
-        <ShippingMethod
-          inputValue={1}
-          fast={true}
-          tagTitle='DHL 貨運'
-          tagDescription='48小時內送達'
-          tagCosts='$500'
-          method={shipMethod}
-          onChange={(shipMethodInputValue: number) => setshipMethod(shipMethodInputValue)}
-        />
-
         
       </div>
       <div className={styles.footerLine}></div>

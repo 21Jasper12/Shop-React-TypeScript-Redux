@@ -20,7 +20,6 @@ const StepThreeInfoPart = () => {
     cardDeadLine: stepThreeCardDeadLine,
     cardCvc: stepThreeCardCvc
   } = useAppSelector((state) => state.userShopInfo.stepThreeInfo)
-  const allData = useAppSelector((state) => state.userShopInfo)
   const dispatch = useAppDispatch()
   const [userName, setUserName] = useState<string>(stepThreeName)
   const [cardNumber, setCardNumber] = useState<string>(stepThreeCardNumber)
@@ -51,8 +50,7 @@ const StepThreeInfoPart = () => {
     dispatch(stepThreeInfoChange({
       formData
     }))
-    alert('訂單已送出')
-    console.log('allData: ', allData)
+
     return true
   }
 

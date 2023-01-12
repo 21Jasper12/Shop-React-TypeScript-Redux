@@ -8,6 +8,7 @@ interface props {
 
 const ProgressControl = ({ onNext }: props) => {
   const statusNumber = useAppSelector((state) => state.shoppingStatus.status)
+  const allData = useAppSelector((state) => state.userShopInfo)
   const dispatch = useAppDispatch()
 
   function handlePrevious():void {
@@ -19,6 +20,13 @@ const ProgressControl = ({ onNext }: props) => {
     const nextStatus = onNext()
     if ((statusNumber < 3) && nextStatus) {
       dispatch(ShoppingChangeStatus({ status: (statusNumber + 1) }))
+    }
+    else if ((statusNumber === 3) && nextStatus){
+      console.log('訂單已送出')
+      console.log('stepOneInfo', allData.stepOneInfo)
+      console.log('stepTwoInfo', allData.stepTwoInfo)
+      console.log('stepThreeInfo', allData.stepThreeInfo)
+      console.log('totalCount', allData.totalCount)
     }
   }
 

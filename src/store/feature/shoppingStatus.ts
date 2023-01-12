@@ -15,6 +15,8 @@ export const ShoppingStatusSlice = createSlice({
   reducers:{
     ShoppingChangeStatus: (state, action: PayloadAction<{ status: number}>) => {
       state.status = action.payload.status
+
+      return state
     }
   }
 })

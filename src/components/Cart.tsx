@@ -1,49 +1,40 @@
 import { useAppDispatch, useAppSelector } from '../store/store'
-import { cartItems, increaseItem, reduceItem } from '../store/feature/CartListInfo'
+import { increaseItem, reduceItem } from '../store/feature/CartListInfo'
+import { totalCountChange } from '../store/feature/UserShopInfo'
 import styles from '../style/Cart.module.scss'
 import CartList from './CartComponents/CartList'
-import { useState } from 'react'
+import { useEffect } from 'react'
 
 
 const Cart = () => {
   const carts = useAppSelector((state) => state.cartListInfo)
+  const { cost } = useAppSelector((state) => state.userShopInfo.stepTwoInfo)
   const dispatch = useAppDispatch()
-  const [cartsData, setCartsData] = useState<cartItems[]>(carts)
+
+  let totalCost: number = 0
+  for(let i = 0; i < carts.length; i++){
+    totalCost += carts[i].quantity * carts[i].price
+  }
+  totalCost += cost
+  
+
 
   function handleIncrease(id: number): void {
-    console.log('increase', id)
-    setCartsData(cartsData.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          quantity: item.quantity + 1
-        }
-      }
-      else {
-        return item
-      }
-    })
-    )
+    // console.log('increase', id)
+    
     dispatch(increaseItem({ id }))
-    console.log('cartsData: ', carts)
   }
 
   function handleReduce(id: number): void {
-    console.log('reduce', id)
-    setCartsData(cartsData.map((item) => {
-      if ((item.id === id) && (item.quantity > 0)) {
-        return {
-          ...item,
-          quantity: item.quantity + 1
-        }
-      }
-      else {
-        return item
-      }
-    }))
+    // console.log('reduce', id)
+    
     dispatch(reduceItem({ id }))
-    console.log('cartsData: ', carts)
   }
+
+  useEffect(() => {
+    dispatch(totalCountChange({ totalCount: totalCost }))
+    
+  }, [dispatch, totalCost])
 
   return(
     <div className={styles.shoppingContainer}>
@@ -53,7 +44,7 @@ const Cart = () => {
       </div>
 
       <CartList 
-        carts={cartsData}
+        carts={carts}
         onIncrease={handleIncrease}
         onReduce={handleReduce}
       />
@@ -61,7 +52,7 @@ const Cart = () => {
       <div className={styles.transportationFee}>
         <p className={styles.feeTitle}>
           運費
-          <span className={styles.feePrice}>免費</span>
+          <span className={styles.feePrice}>{(cost === 0) ? '免費' : `$${cost}`}</span>
         </p>
       </div>
 
@@ -73,7 +64,7 @@ const Cart = () => {
             <span
               className={styles.totalPrice}
             >
-              0
+              {totalCost.toLocaleString()}
             </span>
           </span>
         </p>

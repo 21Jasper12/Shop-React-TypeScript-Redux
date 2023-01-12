@@ -5,7 +5,7 @@ interface props {
   fast: boolean, 
   tagTitle: string, 
   tagDescription: string, 
-  tagCosts: string,
+  tagCosts: number,
   method: number,
   onChange: Function
 }
@@ -31,7 +31,7 @@ const ShippingMethod = (
       />
       <p className={`${styles.tagTitle} ${(fast && styles.fast)}`}>{tagTitle}</p>
       <p className={styles.tagDescription}>{tagDescription}</p>
-      <p className={styles.tagCosts}>{tagCosts}</p>
+      <p className={styles.tagCosts}>{(tagCosts === 0) ? '免費' : `$${tagCosts}`}</p>
     </div>
   )
 }

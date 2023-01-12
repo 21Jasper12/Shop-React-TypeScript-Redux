@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { stepOneformState } from "../../components/StepOneInfoPart"
 import { stepThreeformState } from "../../components/StepThreeInfoPart"
+import { shipFeeStatus } from "../../components/StepTwoInfoPart"
 
 interface userShopInfo {
   stepOneInfo: stepOneformState,
-  stepTwoInfo: number,
-  stepThreeInfo: stepThreeformState
+  stepTwoInfo: shipFeeStatus,
+  stepThreeInfo: stepThreeformState,
+  totalCount: number
 }
 
 const initialState: userShopInfo = {
@@ -17,13 +19,20 @@ const initialState: userShopInfo = {
     userCity: 0,
     userAdress: ''
   },
-  stepTwoInfo: 0,
+  stepTwoInfo: {
+    id: 0,
+    fast: false,
+    title: '',
+    description: '',
+    cost: 0
+  },
   stepThreeInfo: {
     userName: '',
     cardNumber: '',
     cardDeadLine: '',
     cardCvc: ''
-  }
+  },
+  totalCount: 0
 }
 
 
@@ -35,16 +44,20 @@ export const UserShopInfoSlice = createSlice({
       formData: stepOneformState
     }>) => {
       state.stepOneInfo = action.payload.formData
-  
+
       console.log('UserShopInfoSlice: ', Object.entries(state))
+
+      return state
     },
 
     stepTwoInfoChange: (state, action: PayloadAction<{
-      formData: number
+      formData: shipFeeStatus
     }>) => {
       state.stepTwoInfo = action.payload.formData
 
       console.log('UserShopInfoSlice: ', Object.entries(state))
+
+      return state
     },
 
     stepThreeInfoChange: (state, action: PayloadAction<{
@@ -53,10 +66,24 @@ export const UserShopInfoSlice = createSlice({
       state.stepThreeInfo = action.payload.formData
 
       console.log('UserShopInfoSlice: ', Object.entries(state))
+
+      return state
+    },
+
+    totalCountChange: (state, action: PayloadAction<{ totalCount: number }>) => {
+      state.totalCount = action.payload.totalCount
+
+      console.log('UserShopInfoSlice: ', Object.entries(state))
+
+      return state
     }
   }
 
 })
 
 export default UserShopInfoSlice.reducer
-export const { stepOneInfoChange, stepTwoInfoChange, stepThreeInfoChange } = UserShopInfoSlice.actions
+export const { 
+  stepOneInfoChange, 
+  stepTwoInfoChange, 
+  stepThreeInfoChange, 
+  totalCountChange } = UserShopInfoSlice.actions
