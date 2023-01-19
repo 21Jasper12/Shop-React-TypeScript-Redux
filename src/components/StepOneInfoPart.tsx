@@ -109,7 +109,7 @@ const StepOneInfoPart = () => {
             title='稱謂'
             name='gender'
             defaultOptionTitle='請選擇稱謂'
-            optionArray={initialGender}
+            optionArray={gender}
             inputValue={userGender}
             onChange={(userGenderInputValue: number): void => setUserGender(userGenderInputValue)}
           />
@@ -150,7 +150,7 @@ const StepOneInfoPart = () => {
             title='縣市'
             name='city'
             defaultOptionTitle='請選擇縣市'
-            optionArray={initialCity}
+            optionArray={city}
             inputValue={userCity}
             onChange={(userCityInputValue: number): void => setUserCity(userCityInputValue)}
           />

@@ -11,10 +11,10 @@ import './style/App.scss'
 function App() {
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(fetchData())
-    dispatch(fetchCartList())
-  })
+  // useEffect(() => {
+  //   dispatch(fetchData())
+  //   dispatch(fetchCartList())
+  // })
 
   return (
     <div>
