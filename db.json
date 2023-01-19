@@ -1,0 +1,64 @@
+{
+  "initialData":{
+    "gender": [
+      {
+        "id": 1,
+        "title": "先生"
+      },
+      {
+        "id": 2,
+        "title": "女士"
+      }
+    ],
+    "city": [
+      {
+        "id": 1,
+        "title": "台北"
+      },
+      {
+        "id": 2,
+        "title": "台中"
+      },
+      {
+        "id": 3,
+        "title": "高雄"
+      },
+      {
+        "id": 4,
+        "title": "花蓮"
+      }
+    ],
+    "shipFee": [
+      {
+        "id": 0,
+        "fast": false,
+        "title": "標準運送",
+        "description": "約3~7個工作天",
+        "cost": 0
+      },
+      {
+        "id": 1,
+        "fast": true,
+        "title": "DHL 貨運",
+        "description": "48小時內送達",
+        "cost": 500
+      }
+    ]
+  },
+  "cartList":[
+    {
+      "id": 1,
+      "name": "貓咪罐罐",
+      "img": "https://picsum.photos/300/300?text=1",
+      "price": 100,
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "name": "貓咪干干",
+      "img": "https://picsum.photos/300/300?text=2",
+      "price": 200,
+      "quantity": 0
+    }
+  ]
+}

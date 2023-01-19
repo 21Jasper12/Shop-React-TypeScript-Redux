@@ -2,7 +2,7 @@
   position: relative;
   border: 1px solid #dfdfe4;
   border-radius: 4px;
-  width: 346px;
+  // min-width: 346px;
   height: 60px;
   margin-bottom: 24px;
 
@@ -11,7 +11,7 @@
     top: 20px;
     left: 20px;
     bottom: 20px;
-    right: 306px;
+    // right: 306px;
   }
 
   .tagTitle {
@@ -41,9 +41,9 @@
   .tagCosts {
     position: absolute;
     top: 13px;
-    left: 302px;
+    // left: 302px;
     bottom: 11px;
-    right: 83px;
+    right: 20px;
     font-size: 12px;
     font-weight: 400;
     width: 30px;

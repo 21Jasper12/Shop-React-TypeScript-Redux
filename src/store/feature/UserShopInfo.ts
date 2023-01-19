@@ -76,14 +76,47 @@ export const UserShopInfoSlice = createSlice({
       console.log('UserShopInfoSlice: ', Object.entries(state))
 
       return state
+    },
+
+    resetUserShopInfo: (state) => {
+      state.stepOneInfo = {
+        userGender: 0,
+        userName: '',
+        userTel: '',
+        userEmail: '',
+        userCity: 0,
+        userAdress: ''
+      }
+
+      state.stepTwoInfo = {
+        id: 0,
+        fast: false,
+        title: '',
+        description: '',
+        cost: 0
+      }
+
+      state.stepThreeInfo = {
+        userName: '',
+        cardNumber: '',
+        cardDeadLine: '',
+        cardCvc: ''
+      }
+
+      state.totalCount = 0
+
+      return state
     }
+
+
   }
 
 })
 
 export default UserShopInfoSlice.reducer
-export const { 
-  stepOneInfoChange, 
-  stepTwoInfoChange, 
-  stepThreeInfoChange, 
-  totalCountChange } = UserShopInfoSlice.actions
+export const {
+  stepOneInfoChange,
+  stepTwoInfoChange,
+  stepThreeInfoChange,
+  totalCountChange,
+  resetUserShopInfo } = UserShopInfoSlice.actions

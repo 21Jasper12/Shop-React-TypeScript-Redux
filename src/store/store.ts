@@ -3,13 +3,15 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import shoppingStatusReducer from "./feature/shoppingStatus";
 import userShopInfoReducer from "./feature/UserShopInfo"
 import cartListInfoReducer from "./feature/CartListInfo"
+import initialDataReducer from "./feature/InitialData"
 
 
 export const store = configureStore({
   reducer: {
     shoppingStatus: shoppingStatusReducer,
     userShopInfo: userShopInfoReducer,
-    cartListInfo: cartListInfoReducer
+    cartListInfo: cartListInfoReducer,
+    initialData: initialDataReducer
   }
 })
 

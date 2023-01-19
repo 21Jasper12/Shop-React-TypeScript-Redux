@@ -15,7 +15,6 @@ const Cart = () => {
   for(let i = 0; i < carts.length; i++){
     totalCost += carts[i].quantity * carts[i].price
   }
-  totalCost += cost
   
 
 
@@ -64,7 +63,7 @@ const Cart = () => {
             <span
               className={styles.totalPrice}
             >
-              {totalCost.toLocaleString()}
+              {(totalCost + cost).toLocaleString()}
             </span>
           </span>
         </p>

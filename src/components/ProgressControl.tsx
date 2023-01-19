@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../store/store"
 import { ShoppingChangeStatus } from "../store/feature/shoppingStatus"
 import styles from '../style/ProgressControl.module.scss'
+import { useNavigate } from "react-router-dom"
 
 interface props {
   onNext: Function
@@ -8,8 +9,9 @@ interface props {
 
 const ProgressControl = ({ onNext }: props) => {
   const statusNumber = useAppSelector((state) => state.shoppingStatus.status)
-  const allData = useAppSelector((state) => state.userShopInfo)
+  const { totalCount } = useAppSelector((state) => state.userShopInfo)
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   function handlePrevious():void {
     dispatch(ShoppingChangeStatus({ status: (statusNumber - 1) }))
@@ -21,12 +23,11 @@ const ProgressControl = ({ onNext }: props) => {
     if ((statusNumber < 3) && nextStatus) {
       dispatch(ShoppingChangeStatus({ status: (statusNumber + 1) }))
     }
-    else if ((statusNumber === 3) && nextStatus){
-      console.log('訂單已送出')
-      console.log('stepOneInfo', allData.stepOneInfo)
-      console.log('stepTwoInfo', allData.stepTwoInfo)
-      console.log('stepThreeInfo', allData.stepThreeInfo)
-      console.log('totalCount', allData.totalCount)
+    else if ((statusNumber === 3) && nextStatus && (totalCount !== 0)){
+      navigate('/orderInfo')
+    }
+    else if ((statusNumber === 3) && (totalCount === 0)){
+      alert('購物籃不得空白')
     }
   }
 
@@ -41,7 +42,7 @@ const ProgressControl = ({ onNext }: props) => {
             className={styles.btnNext}
             onClick={handleNext}
           >
-            確認下單
+            確認下單資料
           </button>
         ) :
           (

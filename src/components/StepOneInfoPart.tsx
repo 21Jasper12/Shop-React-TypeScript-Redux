@@ -31,7 +31,7 @@ const gender: arrayState[] = [
   }
 ]
 
-const city: arrayState[] = [
+export const city: arrayState[] = [
   {
     id: 1,
     title: '台北'
@@ -59,6 +59,7 @@ const StepOneInfoPart = () => {
     userCity: stepOneCity,
     userAdress: stepOneAdress
   } = stepOneInfo
+  const { gender: initialGender, city: initialCity } = useAppSelector((state) => state.initialData)
   const [userGender, setUserGender] = useState<number>(stepOneGender)
   const [userName, setUserName] = useState<string>(stepOneName)
   const [userTel, setUserTel] = useState<string>(stepOneTel)
@@ -91,7 +92,7 @@ const StepOneInfoPart = () => {
       userAdress
     }
 
-    console.log('formData', formData)
+    // console.log('formData', formData)
     dispatch(stepOneInfoChange({ formData }))
     return true
   }
@@ -108,7 +109,7 @@ const StepOneInfoPart = () => {
             title='稱謂'
             name='gender'
             defaultOptionTitle='請選擇稱謂'
-            optionArray={gender}
+            optionArray={initialGender}
             inputValue={userGender}
             onChange={(userGenderInputValue: number): void => setUserGender(userGenderInputValue)}
           />
@@ -149,7 +150,7 @@ const StepOneInfoPart = () => {
             title='縣市'
             name='city'
             defaultOptionTitle='請選擇縣市'
-            optionArray={city}
+            optionArray={initialCity}
             inputValue={userCity}
             onChange={(userCityInputValue: number): void => setUserCity(userCityInputValue)}
           />

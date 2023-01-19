@@ -40,7 +40,7 @@ const StepTwoInfoPart = () => {
   function handleClick(): boolean {
     const stepTwoInfoData = shipFee.filter((item) => item.id === shipMethod)
 
-    console.log('formData: ', stepTwoInfoData)
+    // console.log('formData: ', stepTwoInfoData)
     dispatch(stepTwoInfoChange({
       formData: stepTwoInfoData[0]
     }))

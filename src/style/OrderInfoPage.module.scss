@@ -1,0 +1,48 @@
+.orderInfo {
+  padding: 0px 50px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(500px, 800px));
+  grid-gap: 134px;
+
+  grid-template-areas: "main cart";
+
+  .orderMain {
+    grid-area: main;
+
+    .btnGroup {
+      margin-top: 50px;
+      padding-top: 24px;
+
+      border-top: 1px solid #e5e5e5;
+      position: relative;
+
+      button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .btnPrevious {
+        width: 100px;
+        height: 46px;
+      }
+
+      .btnNext {
+        position: absolute;
+        right: 0px;
+        width: 174px;
+        height: 46px;
+        background-color: #f67599;
+        color: white;
+        border-radius: 7px;
+      }
+    }
+  }
+
+  .orderCart {
+    margin-top: 21.44px;
+    grid-area: cart;
+  }
+}

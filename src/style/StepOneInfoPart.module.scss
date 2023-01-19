@@ -10,14 +10,14 @@
     min-width: 540px;
     height: 300px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, auto-fit));
+    grid-template-columns: repeat(4, minmax(100px, 300px));
     grid-gap: 30px;
 
     grid-template-areas:
       "gender  real-name real-name real-name"
       "mobile mobile email email"
       "county  address address address";
-      
+
     .userGender {
       grid-area: gender;
     }
@@ -41,16 +41,44 @@
     .userAdress {
       grid-area: address;
     }
+  }
+
+  .footerLine {
+    height: 1px;
+    background-color: #e5e5e5;
+    margin-top: 48px;
+  }
+
+  .buttonGroup {
+    margin-top: 24px;
+  }
+}
+
+// @media (max-width: 390px) {
+//   .stepOneInfoPaart {
+//     height: 600px;
+//     // position: relative;
+//     border: 1px solid orange;
+
+//     .userInfo {
+//       min-width: 100%;
+
+//       grid-template-columns: 133px 183px;
+//       grid-gap: 30px;
+//       grid-template-areas:
+//       "gender real-name"
+//       "mobile mobile"
+//       "email email"
+//       "county county"
+//       "county county"
+//       "address address";
+//     }
+
+//     .footerLine {
+//       display: none;
+//     }
 
     
-  }
-  .footerLine {
-      height: 1px;
-      background-color: #E5E5E5;
-      margin-top: 48px;
-    }
-
-    .buttonGroup {
-      margin-top: 24px;
-    }
-}
+      
+//   }
+// }

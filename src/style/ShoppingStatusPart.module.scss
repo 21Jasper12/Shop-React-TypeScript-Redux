@@ -71,3 +71,19 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .checkedStepper {
+    min-width: 390px;
+
+    .step {
+      .labelContainer {
+        display: none;
+      }
+
+      .connectLine {
+        left: calc(-50% - 10px);
+      }
+    }
+  }
+}

@@ -45,7 +45,7 @@ const StepThreeInfoPart = () => {
       cardCvc
     }
 
-    console.log('formData', formData)
+    // console.log('formData', formData)
 
     dispatch(stepThreeInfoChange({
       formData
@@ -93,7 +93,7 @@ const StepThreeInfoPart = () => {
 
         <div className={styles.cardCvc}>
           <InfoInput
-            title='CVC / CCV '
+            title='CVC / CCV'
             name='cardCvc'
             placeholder='123'
             inputValue={cardCvc}

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface cartItems {
   id: number,
@@ -10,24 +10,33 @@ export interface cartItems {
 
 
 const initialState: cartItems[] = [
-  {
-    id: 1,
-    name: '貓咪罐罐',
-    img: 'https://picsum.photos/300/300?text=1',
-    price: 100,
-    quantity: 2,
-  },
-  {
-    id: 2,
-    name: '貓咪干干',
-    img: 'https://picsum.photos/300/300?text=2',
-    price: 200,
-    quantity: 1,
-  },
+  // {
+  //   id: 1,
+  //   name: '貓咪罐罐',
+  //   img: 'https://picsum.photos/300/300?text=1',
+  //   price: 100,
+  //   quantity: 0,
+  // },
+  // {
+  //   id: 2,
+  //   name: '貓咪干干',
+  //   img: 'https://picsum.photos/300/300?text=2',
+  //   price: 200,
+  //   quantity: 0,
+  // },
 ]
 
+export const fetchCartList = createAsyncThunk("cartList/fetch", async(thunkAPI) => {
+  const response = await fetch("http://localhost:3001/cartList", {
+    method: "GET"
+  })
 
-console.log('initialState: ', initialState)
+  const data = response.json()
+  console.log("Async Thunk fetchPerson:", data)
+
+  return data
+})
+
 
 export const CartListInfoSlice = createSlice({
   name: 'cartListInfo',
@@ -65,8 +74,46 @@ export const CartListInfoSlice = createSlice({
       console.log('reduceItem', state)
       return state
     },
+
+    resetCartListInfo: (state) => {
+      // state = [
+      //   {
+      //     id: 1,
+      //     name: '貓咪罐罐',
+      //     img: 'https://picsum.photos/300/300?text=1',
+      //     price: 100,
+      //     quantity: 0,
+      //   },
+      //   {
+      //     id: 2,
+      //     name: '貓咪干干',
+      //     img: 'https://picsum.photos/300/300?text=2',
+      //     price: 200,
+      //     quantity: 0,
+      //   },
+      // ]
+
+      state = state.map((item) => {
+        return{
+          ...item,
+          quantity: 0
+        }
+      })
+
+      // console.log('test: ',state)
+      return state
+    }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCartList.fulfilled, (state, action) => {
+      // console.log('fetchCartList: ', action.payload)
+
+      state = action.payload
+
+      return state
+    })
   }
 })
 
 export default CartListInfoSlice.reducer
-export const { increaseItem, reduceItem } = CartListInfoSlice.actions
+export const { increaseItem, reduceItem, resetCartListInfo } = CartListInfoSlice.actions
