@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Shop-React-TypeScript-Redux-/static/css/main.6aed4714.css",
-    "main.js": "/Shop-React-TypeScript-Redux-/static/js/main.70261430.js",
-    "static/js/787.e6f5c979.chunk.js": "/Shop-React-TypeScript-Redux-/static/js/787.e6f5c979.chunk.js",
-    "index.html": "/Shop-React-TypeScript-Redux-/index.html",
-    "main.6aed4714.css.map": "/Shop-React-TypeScript-Redux-/static/css/main.6aed4714.css.map",
-    "main.70261430.js.map": "/Shop-React-TypeScript-Redux-/static/js/main.70261430.js.map",
-    "787.e6f5c979.chunk.js.map": "/Shop-React-TypeScript-Redux-/static/js/787.e6f5c979.chunk.js.map"
+    "main.css": "/Shop-React-TypeScript-Redux/static/css/main.6aed4714.css",
+    "main.js": "/Shop-React-TypeScript-Redux/static/js/main.61c1c104.js",
+    "static/js/787.e6f5c979.chunk.js": "/Shop-React-TypeScript-Redux/static/js/787.e6f5c979.chunk.js",
+    "index.html": "/Shop-React-TypeScript-Redux/index.html",
+    "main.6aed4714.css.map": "/Shop-React-TypeScript-Redux/static/css/main.6aed4714.css.map",
+    "main.61c1c104.js.map": "/Shop-React-TypeScript-Redux/static/js/main.61c1c104.js.map",
+    "787.e6f5c979.chunk.js.map": "/Shop-React-TypeScript-Redux/static/js/787.e6f5c979.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6aed4714.css",
-    "static/js/main.70261430.js"
+    "static/js/main.61c1c104.js"
   ]
 }
