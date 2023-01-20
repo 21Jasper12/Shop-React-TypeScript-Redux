@@ -32,7 +32,7 @@
 > npm run dev-server
 
 5. 登入頁面
-> http://localhost:3000/Shop-React-Typescript-Redux/home
+> http://localhost:3000/home
 
 6. 停止專案
 > Ctrl + c

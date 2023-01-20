@@ -20,16 +20,16 @@ export interface stepOneformState {
   userAdress: string
 }
 
-const gender: arrayState[] = [
-  {
-    id: 1,
-    title: '先生'
-  },
-  {
-    id: 2,
-    title: '女士'
-  }
-]
+// const gender: arrayState[] = [
+//   {
+//     id: 1,
+//     title: '先生'
+//   },
+//   {
+//     id: 2,
+//     title: '女士'
+//   }
+// ]
 
 export const city: arrayState[] = [
   {
