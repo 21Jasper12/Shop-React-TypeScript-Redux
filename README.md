@@ -25,11 +25,11 @@
 2. 安裝node_modules
 > npm install
 
-3. 啟動專案
-> npm run start
-
-4. 啟動Server(需另開Terminal)
+3. 啟動Server(需另開Terminal)
 > npm run dev-server
+
+4. 啟動專案
+> npm run start
 
 5. 登入頁面
 > http://localhost:3000/home
