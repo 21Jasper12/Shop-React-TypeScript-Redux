@@ -34,7 +34,7 @@ const shipFee: shipFeeStatus[] = [
 
 const StepTwoInfoPart = () => {
   const stepTwoInfo = useAppSelector((state) => state.userShopInfo.stepTwoInfo)
-  const { shipFee: initialShipFee } = useAppSelector((state) => state.initialData)
+  // const { shipFee: initialShipFee } = useAppSelector((state) => state.initialData)
   const [shipMethod, setshipMethod] = useState<number>(stepTwoInfo.id)
   const dispatch = useAppDispatch()
   

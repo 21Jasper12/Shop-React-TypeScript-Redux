@@ -59,7 +59,7 @@ const StepOneInfoPart = () => {
     userCity: stepOneCity,
     userAdress: stepOneAdress
   } = stepOneInfo
-  const { gender: initialGender, city: initialCity } = useAppSelector((state) => state.initialData)
+  // const { gender: initialGender, city: initialCity } = useAppSelector((state) => state.initialData)
   const [userGender, setUserGender] = useState<number>(stepOneGender)
   const [userName, setUserName] = useState<string>(stepOneName)
   const [userTel, setUserTel] = useState<string>(stepOneTel)

@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './page/HomePage';
 import NotFoundPage from './page/NotFoundPage';
 import OrderInfoPage from './page/OrderInfoPage';
-import { fetchCartList } from './store/feature/CartListInfo';
-import { fetchData } from './store/feature/InitialData';
-import { useAppDispatch } from './store/store';
+// import { fetchCartList } from './store/feature/CartListInfo';
+// import { fetchData } from './store/feature/InitialData';
+// import { useAppDispatch } from './store/store';
 import './style/App.scss'
 
 const basename = process.env.PUBLIC_URL
