@@ -23,7 +23,7 @@ function App() {
           <Route path='home' element={<HomePage />} />
           <Route path='orderInfo' element={<OrderInfoPage />} />
           <Route path='*' element={<NotFoundPage />} />
-          <Route path='/' element={<HomePage />} />
+          {/* <Route path='/' element={<HomePage />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
