@@ -8,8 +8,10 @@ import { fetchData } from './store/feature/InitialData';
 import { useAppDispatch } from './store/store';
 import './style/App.scss'
 
+const basename = process.env.PUBLIC_URL
+
 function App() {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
 
   // useEffect(() => {
   //   dispatch(fetchData())
@@ -18,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path='home' element={<HomePage />} />
           <Route path='orderInfo' element={<OrderInfoPage />} />
