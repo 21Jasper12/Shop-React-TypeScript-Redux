@@ -1,7 +1,7 @@
 {
   "name": "shopping-redux",
   "version": "0.1.0",
-  "homepage": "https://21Jasper12.github.io/Shop-React-TypeScript-Redux",
+  "homepage": "https://21Jasper12.github.io/Shop-React-Typescript-Redux",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
