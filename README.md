@@ -3,6 +3,8 @@
 ### 【網站連結】
 > https://21jasper12.github.io/Shop-React-Typescript-Redux/
 
+### 【備註】
+> 這邊是使用假資料帶入，feature/API分支會使用json-server帶入API
 
 ---
 
