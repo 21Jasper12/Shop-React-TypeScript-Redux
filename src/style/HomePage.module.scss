@@ -19,21 +19,22 @@
   }
 }
 
-// @media (max-width: 390px) {
-//   .homePage {
-//     padding: 20px;
+@media (max-width: 490px) {
+  .homePage {
+    all: initial;
+    padding: 20px;
 
-//     display: flex;
-//     flex-direction: column;
-//     grid-gap: 0px;
+    display: flex;
+    flex-direction: column;
+    // grid-gap: 0px;
 
-//     .infoPart {
-//       min-height: 450px;
-//     }
+    .infoPart {
+      min-height: 450px;
+    }
 
-//     .cart {
-//       padding: 0;
-//     }
+    .cart {
+      padding: 0;
+    }
 
-//   }
-// }
+  }
+}
