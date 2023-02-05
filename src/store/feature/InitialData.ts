@@ -20,7 +20,7 @@ export const fetchData = createAsyncThunk("initialData/fetch", async(thunkAPI) =
   })
 
   const data = response.json()
-  console.log("Async Thunk fetchPerson:", data)
+  // console.log("Async Thunk fetchData:", data)
 
   return data
 })
@@ -32,7 +32,7 @@ export const InitialDataSlice = createSlice({
   reducers:{},
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
-      console.log("fetch: ", action.payload)
+      // console.log("fetch: ", action.payload)
 
       state.gender = action.payload.gender
       state.city = action.payload.city

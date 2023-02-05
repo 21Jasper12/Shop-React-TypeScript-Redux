@@ -1,5 +1,8 @@
 # Shop with React-TypeScript-Redux
 
+### 【網站連結 | 使用假資料】
+> https://21jasper12.github.io/Shop-React-Typescript-Redux/
+
 ### 【備註】
 > 這個分支不會提供網頁連結，會使用到josn-server來呼叫API，需要將專案clone到Local並且要額外多開Terminal將server啟動
 
