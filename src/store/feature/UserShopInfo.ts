@@ -45,7 +45,7 @@ export const UserShopInfoSlice = createSlice({
     }>) => {
       state.stepOneInfo = action.payload.formData
 
-      console.log('UserShopInfoSlice: ', Object.entries(state))
+      // console.log('UserShopInfoSlice: ', Object.entries(state))
 
       return state
     },
@@ -55,7 +55,7 @@ export const UserShopInfoSlice = createSlice({
     }>) => {
       state.stepTwoInfo = action.payload.formData
 
-      console.log('UserShopInfoSlice: ', Object.entries(state))
+      // console.log('UserShopInfoSlice: ', Object.entries(state))
 
       return state
     },
@@ -65,7 +65,7 @@ export const UserShopInfoSlice = createSlice({
     }>) => {
       state.stepThreeInfo = action.payload.formData
 
-      console.log('UserShopInfoSlice: ', Object.entries(state))
+      // console.log('UserShopInfoSlice: ', Object.entries(state))
 
       return state
     },
@@ -73,7 +73,7 @@ export const UserShopInfoSlice = createSlice({
     totalCountChange: (state, action: PayloadAction<{ totalCount: number }>) => {
       state.totalCount = action.payload.totalCount
 
-      console.log('UserShopInfoSlice: ', Object.entries(state))
+      // console.log('UserShopInfoSlice: ', Object.entries(state))
 
       return state
     },

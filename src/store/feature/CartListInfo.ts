@@ -32,7 +32,7 @@ export const fetchCartList = createAsyncThunk("cartList/fetch", async(thunkAPI) 
   })
 
   const data = response.json()
-  console.log("Async Thunk fetchPerson:", data)
+  // console.log("Async Thunk fetchPerson:", data)
 
   return data
 })
@@ -55,7 +55,7 @@ export const CartListInfoSlice = createSlice({
         }
       })
 
-      console.log('increaseItem', state)
+      // console.log('increaseItem', state)
       return state
     },
     reduceItem: (state, action: PayloadAction<{ id: number }>) => {
@@ -71,7 +71,7 @@ export const CartListInfoSlice = createSlice({
         }
       })
       
-      console.log('reduceItem', state)
+      // console.log('reduceItem', state)
       return state
     },
 
