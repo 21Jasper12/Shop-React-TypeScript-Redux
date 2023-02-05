@@ -1,10 +1,7 @@
 # Shop with React-TypeScript-Redux
 
-### 【網站連結】
-> https://21jasper12.github.io/Shop-React-Typescript-Redux/
-
 ### 【備註】
-> 這邊是使用假資料帶入，feature/API分支會使用json-server帶入API
+> 這個分支不會提供網頁連結，會使用到josn-server來呼叫API，需要將專案clone到Local並且要額外多開Terminal將server啟動
 
 ---
 
@@ -31,8 +28,11 @@
 3. 啟動專案
 > npm run start
 
-4. 登入頁面
+4. 啟動Server(需另開Terminal)
+> npm run dev-server
+
+5. 登入頁面
 > http://localhost:3000/Shop-React-Typescript-Redux/home
 
-5. 停止專案
+6. 停止專案
 > Ctrl + c
