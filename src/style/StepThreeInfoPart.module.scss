@@ -47,30 +47,25 @@
     }
 }
 
-// @media (max-width: 390px) {
-//   .stepThreeInfoPaart {
-//     height: 600px;
+@media (max-width: 490px) {
+  .stepThreeInfoPaart {
+    min-width: 390px;
+    height: 600px;
 
-//     position: relative;
-//     .userInfo {
-//       min-width: 100%;
+    position: relative;
+    .userInfo {
+      min-width: 100%;
 
-//       grid-template-columns: 158px 158px;
-//       grid-gap: 30px;
-//       grid-template-areas:
-//       "real-name real-name"
-//       "cardNumber cardNumber"
-//       "cardDeadLine cardCvc";
-//     }
+      grid-template-columns: minmax(158px, auto) minmax(158px, auto);
+      grid-gap: 30px;
+      grid-template-areas:
+      "real-name real-name"
+      "cardNumber cardNumber"
+      "cardDeadLine cardCvc";
+    }
 
-//     .footerLine {
-//       display: none;
-//     }
-
-//     .buttonGroup {
-//       position: absolute;
-//       bottom: -550px;
-//       left: 200px;
-//     }
-//   }
-// }
+    .footerLine {
+      display: none;
+    }
+  }
+}

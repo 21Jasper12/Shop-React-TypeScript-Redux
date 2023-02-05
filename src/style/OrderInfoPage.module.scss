@@ -46,3 +46,21 @@
     grid-area: cart;
   }
 }
+
+@media (max-width: 490px) {
+  .orderInfo{
+    all: initial;
+    position: relative;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    .btnGroup {
+      position: absolute;
+      bottom: -650px;
+
+      min-width: 390px;
+    }
+  }
+}

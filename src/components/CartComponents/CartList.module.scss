@@ -58,14 +58,14 @@
   }
 }
 
-// @media (max-width: 390px) {
-//   .cartList {
-//     .listDetail {
-//       // border: 1px solid orange;
-//       .price {
-//         top: 60px;
-//         left: 140px;
-//       }
-//     }
-//   }
-// }
+@media (max-width: 490px) {
+  .cartList {
+    .listDetail {
+      // border: 1px solid orange;
+      .price {
+        top: -18px;
+        left: 280px;
+      }
+    }
+  }
+}

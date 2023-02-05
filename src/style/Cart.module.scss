@@ -29,8 +29,9 @@
   }
 }
 
-// @media (max-width: 390px) {
-//   .shoppingContainer {
-//     width: 100%;
-//   }
-// }
+@media (max-width: 490px) {
+  .shoppingContainer {
+    width: 100%;
+    min-width: 390px;
+  }
+}

@@ -21,24 +21,18 @@
   }
 }
 
-// @media (max-width: 390px) {
-//   .stepTwoInfoPaart {
-//     width: 100%;
-//     height: 600px;
-//     position: relative; 
+@media (max-width: 490px) {
+  .stepTwoInfoPaart {
+    width: 100%;
+    height: 600px;
+    position: relative; 
 
-//     .shipMethod {
-//       min-width: 350px;
-//     }
+    .shipMethod {
+      min-width: 350px;
+    }
 
-//     .footerLine {
-//       display: none;
-//     }
-
-//     .buttonGroup {
-//       position: absolute;
-//       bottom: -550px;
-//       left: 200px;
-//     }
-//   }
-// }
+    .footerLine {
+      display: none;
+    }
+  }
+}

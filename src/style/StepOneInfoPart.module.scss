@@ -54,31 +54,29 @@
   }
 }
 
-// @media (max-width: 390px) {
-//   .stepOneInfoPaart {
-//     height: 600px;
-//     // position: relative;
-//     border: 1px solid orange;
+@media (max-width: 490px) {
+  .stepOneInfoPaart {
+    height: 600px;
+    // position: relative;
+    // border: 1px solid orange;
 
-//     .userInfo {
-//       min-width: 100%;
+    .userInfo {
+      min-width: 390px;
 
-//       grid-template-columns: 133px 183px;
-//       grid-gap: 30px;
-//       grid-template-areas:
-//       "gender real-name"
-//       "mobile mobile"
-//       "email email"
-//       "county county"
-//       "county county"
-//       "address address";
-//     }
+      grid-template-columns: minmax(133px, auto) minmax(183px, auto);
+      grid-gap: 30px;
+      grid-template-areas:
+      "gender real-name"
+      "mobile mobile"
+      "email email"
+      "county county"
+      "county county"
+      "address address";
+    }
 
-//     .footerLine {
-//       display: none;
-//     }
-
-    
-      
-//   }
-// }
+    .footerLine {
+      display: none;
+    }
+  
+  }
+}

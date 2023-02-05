@@ -1,30 +1,108 @@
-.btn {
+%buttonModules {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+%btnPreviousModules {
+  width: 100px;
+  height: 46px;
+}
+
+%btnNextModules {
+  width: 174px;
+  height: 46px;
+  background-color: #f67599;
+  color: white;
+  border-radius: 7px;
+}
+
+.btnModules {
   position: relative;
-  button {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    font-size: 14px;
+
+  .computerBtn {
+    position: relative;
+
+    button {
+      @extend %buttonModules;
+    }
+
+    .btnPrevious {
+      @extend %btnPreviousModules
+    }
+
+    .btnNext {
+      @extend %btnNextModules;
+
+      position: absolute;
+      right: 0px;
+    }
   }
 
-  .btnPrevious {
-    width: 100px;
-    height: 46px;
+  .mobileBtn {
+    display: none;
+    min-width: 390px;
+
+    button {
+      @extend %buttonModules;
+    }
+
+    .btnPrevious {
+      @extend %btnPreviousModules;
+
+    }
+
+    .btnNext {
+      @extend %btnNextModules;
+    }
   }
 
-  .btnNext {
-    position: absolute;
-    right: 0px;
-    width: 174px;
-    height: 46px;
-    background-color: #f67599;
-    color: white;
-    border-radius: 7px;
+  .mobileStepOneBtn {
+    display: none;
+    min-width: 390px;
+
+    button {
+      @extend %buttonModules;
+    }
+
+    .btnNext {
+      @extend %btnNextModules;
+    }
   }
 }
 
-// @media (max-width: 390px) {
-//   .btn {
+@media (max-width: 490px) {
+  .btnModules {
+    .computerBtn {
+      display: none;
+    }
 
-//   }
-// }
+    .mobileBtn {
+      position: absolute;
+      bottom: -800px;
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      margin-top: 800px;
+
+      .btnNext {
+        width: 156px;
+      }
+    }
+
+    .mobileStepOneBtn {
+      position: absolute;
+      bottom: -800px;
+
+      display: block;
+      width: 100%;
+
+      .btnNext {
+        width: 100%;
+        min-width: 390px;
+      }
+    }
+  }
+}
